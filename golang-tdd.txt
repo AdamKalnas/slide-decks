@@ -1,0 +1,131 @@
+TDD in Golang by Adam Kalnas
+
+About me
+  Doing Golang for under a year
+  C# background
+  TODO - Steal the about me slide
+
+
+Hello world stuff
+  package main
+
+  import "fmt"
+
+  func main() {
+      fmt.Println("Hello, 世界")
+  }
+
+Golang
+  - arrary
+  - slice
+  - map
+
+Returning multiple values
+  func f() (int, int) {
+      return 5, 6
+  }
+
+  func main() {
+      x, y := f()
+  }
+
+0..n input values
+  func add(args ...int) int {
+      total := 0
+      for _, v := range args {
+          total += v
+      }
+      return total
+  }
+  func main() {
+      fmt.Println(add(1,2,3))
+  }
+
+Closure
+  func main() {
+      add := func(x, y int) int {
+          return x + y
+      }
+      fmt.Println(add(1,1))    
+  } 
+
+
+Pointers * &
+  pointer is represented using the * (asterisk)
+  * is also used to “dereference”
+  & operator to find the address of a variable
+  get a pointer is to use the built-in new function
+  todo - new?
+
+Structs
+  type Popsicle struct {
+    color, flavor string
+   }
+
+  var c Popsicle
+  c := new(Popsicle)
+  c := Popsicle{color: "red", flavor: "cherry"}
+
+  func(p *Popsicle) Nom() string {
+    return fmt.Sprinf("I love eating %s popsicles because it turns my toungue %s", p.flavor, p.color)
+    //TODO -  make sure that works
+  }
+
+putting together a main
+  c := Popsicle{color: "purple", flavor: "purple"}
+  fmt.Println(c.Nom())
+
+Interfaces
+  type FrozenTreat interface {
+    Nom() string
+  }
+  
+  //TODO - Once I verify the go code works... then do implement a diffent type of frozen treat
+
+Basic keywords
+  //TODO - grab the info about the basic 25 Go keywords
+
+Performance
+  Go is FAST
+  Slower than C++, but not by a lot
+  Without use of concurrency, it’s 10-100x faster than Python/Ruby
+
+Other Niceities
+  Gofmt
+  Static Binaries
+  go get
+  go run
+  gox
+
+
+Testing
+  Built in testing
+  Many 3rd party testing tools
+
+
+There are some cons
+
+Lack of generics
+ public class Penguin() 
+  {
+    var popscicles = new List<Popsicles>();
+    foreach(p in popscicles)
+    {
+      p.nom();
+    }
+  }
+
+  - Nice that we have collections of sorts, but unfortunately you can't automagically do things like:
+
+  popscicles.Reverse()
+  popscicles.FindAll()
+  popscicles.Any(x => x.Flavor == "purple")
+  popscicles.Where(x => x.Color == "purple")
+
+Limited mobile support (Android/iOS)
+
+
+Go is flexible
+Go is fast
+Go is readable
+
